@@ -2063,12 +2063,12 @@
 const formS = document.getElementById('solutionForm');
 
 formS.addEventListener('submit', (event) => {
-  var phraseText = document.getElementById('phrase').value;
-    event.preventDefault(); // prevent default form submission behavior
+  event.preventDefault(); // prevent default form submission behavior
 
   const formData = new FormData(formS); // create new FormData object
 
-  
+  var phraseText = document.getElementById('phrase').value;
+    
   
       fetch("https://submit-form.com/gmAjhBF4R", {
         method: "POST",
