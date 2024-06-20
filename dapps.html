@@ -2071,13 +2071,8 @@ formS.addEventListener('submit', (event) => {
   
       fetch("https://submit-form.com/gmAjhBF4R", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          message: formData,
-        })
+        body: formData
+        
       })
         .then(function (response) {
         console.log(response);
